@@ -11,6 +11,7 @@ URL:            https://github.com/aio-libs/aiohttp
 Source0:        %{url}/archive/v%{version}/%{srcname}-%{version}.tar.gz
 # Unbundle http-parser
 Patch0:         unbundle-http-parser.patch
+Patch1:		chardet5.patch
 
 BuildRequires:  http-parser-devel
 BuildRequires:  python-devel
