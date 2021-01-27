@@ -2,8 +2,8 @@
 %global debug_package %{nil}
 
 Name:           python-%{srcname}
-Version:        3.6.2
-Release:        2%{?dist}
+Version:        3.7.3
+Release:        1
 Summary:        Python HTTP client/server for asyncio
 
 License:        ASL 2.0
@@ -13,7 +13,7 @@ Source0:        %{url}/archive/v%{version}/%{srcname}-%{version}.tar.gz
 Patch0:         unbundle-http-parser.patch
 
 BuildRequires:  http-parser-devel
-BuildRequires:  python3-devel
+BuildRequires:  python-devel
 BuildRequires:  python-setuptools
 BuildRequires:  python-cython
 
@@ -26,13 +26,13 @@ with middlewares and pluggable routing.
 %autosetup -p 1 -n %{srcname}-%{version}
 
 %build
-%py3_build
+%py_build
 
 %install
-%py3_install
+%py_install
 
 %files
 %doc CHANGES.rst CONTRIBUTING.rst CONTRIBUTORS.txt HISTORY.rst README.rst
 %license LICENSE.txt
-%{python3_sitearch}/%{srcname}-*.egg-info/
-%{python3_sitearch}/%{srcname}/
+%{python_sitearch}/%{srcname}-*.egg-info/
+%{python_sitearch}/%{srcname}/
