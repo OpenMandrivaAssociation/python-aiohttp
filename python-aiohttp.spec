@@ -2,7 +2,7 @@
 %global debug_package %{nil}
 
 Name:           python-%{srcname}
-Version:        3.7.3
+Version:        3.7.4
 Release:        1
 Summary:        Python HTTP client/server for asyncio
 
