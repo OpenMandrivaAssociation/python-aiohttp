@@ -1,22 +1,21 @@
 %global srcname aiohttp
 %global debug_package %{nil}
 
-Name:           python-%{srcname}
-Version:        3.7.4
-Release:        1
-Summary:        Python HTTP client/server for asyncio
-
-License:        ASL 2.0
-URL:            https://github.com/aio-libs/aiohttp
-Source0:        %{url}/archive/v%{version}/%{srcname}-%{version}.tar.gz
+Name:		python-%{srcname}
+Version:	3.7.4
+Release:	1
+Summary:	Python HTTP client/server for asyncio
+License:	ASL 2.0
+URL:		https://github.com/aio-libs/aiohttp
+Source0:	%{url}/archive/v%{version}/%{srcname}-%{version}.tar.gz
 # Unbundle http-parser
-Patch0:         unbundle-http-parser.patch
+Patch0:		unbundle-http-parser.patch
 Patch1:		chardet5.patch
 
-BuildRequires:  http-parser-devel
-BuildRequires:  python-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-cython
+BuildRequires:	http-parser-devel
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python-setuptools
+BuildRequires:	python-cython
 
 %description
 Python HTTP client/server for asyncio which supports both the client and the
