@@ -1,0 +1,12 @@
+diff -up aiohttp-3.8.3/setup.cfg.omv~ aiohttp-3.8.3/setup.cfg
+--- aiohttp-3.8.3/setup.cfg.omv~	2022-11-03 17:25:07.225172531 +0100
++++ aiohttp-3.8.3/setup.cfg	2022-11-03 17:25:14.564216956 +0100
+@@ -47,7 +47,7 @@ zip_safe = False
+ include_package_data = True
+ install_requires = 
+ 	attrs >= 17.3.0
+-	charset-normalizer >=2.0, < 3.0
++	charset-normalizer >=2.0, < 4.0
+ 	multidict >=4.5, < 7.0
+ 	async_timeout >= 4.0.0a3, < 5.0
+ 	asynctest == 0.13.0; python_version<"3.8"
