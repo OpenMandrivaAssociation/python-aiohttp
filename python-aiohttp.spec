@@ -2,7 +2,7 @@
 
 Name:		python-%{srcname}
 Version:	3.8.3
-Release:	1
+Release:	2
 Summary:	Python HTTP client/server for asyncio
 License:	ASL 2.0
 URL:		https://github.com/aio-libs/aiohttp
