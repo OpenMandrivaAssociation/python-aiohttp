@@ -7,7 +7,7 @@ Summary:	Python HTTP client/server for asyncio
 License:	ASL 2.0
 URL:		https://github.com/aio-libs/aiohttp
 Source0:	https://files.pythonhosted.org/packages/source/a/aiohttp/aiohttp-%{version}.tar.gz
-Patch0:		aiohttp-3.8.3-allow-charset-normalizer-3.x.patch
+#Patch0:		aiohttp-3.8.3-allow-charset-normalizer-3.x.patch
 BuildRequires:	pkgconfig(python)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python-setuptools
