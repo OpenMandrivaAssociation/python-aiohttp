@@ -6,6 +6,7 @@ Release:	1
 Summary:	Python HTTP client/server for asyncio
 License:	ASL 2.0
 URL:		https://github.com/aio-libs/aiohttp
+Group:		Development/Python
 Source0:	https://files.pythonhosted.org/packages/source/a/aiohttp/aiohttp-%{version}.tar.gz
 
 BuildRequires:	python
