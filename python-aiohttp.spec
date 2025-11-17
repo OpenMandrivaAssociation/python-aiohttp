@@ -1,5 +1,6 @@
 %global module aiohttp
-%bcond_without tests
+# disable tests on abf
+%bcond_with tests
 
 Name:		python-aiohttp
 Version:	3.13.2
