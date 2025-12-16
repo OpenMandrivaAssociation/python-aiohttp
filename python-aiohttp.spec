@@ -1,6 +1,6 @@
 %global module aiohttp
 # disable tests on abf
-%bcond_with tests
+%bcond tests 0
 
 Name:		python-aiohttp
 Version:	3.13.2
@@ -26,7 +26,6 @@ BuildRequires:	python%{pyver}dist(attrs)
 BuildRequires:	python%{pyver}dist(charset-normalizer)
 BuildRequires:	python%{pyver}dist(frozenlist)
 BuildRequires:	python%{pyver}dist(multidict)
-BuildRequires:	python%{pyver}dist(uvloop)
 BuildRequires:	python%{pyver}dist(yarl)
 BuildRequires:	llhttp-devel >= 9.3.0
 
@@ -82,6 +81,7 @@ sed -i 's/"-W", "error"/"-W", "error", "-W", "ignore::DeprecationWarning"/' \
 %build
 export AIOHTTP_USE_SYSTEM_DEPS=1
 export CFLAGS="%{optflags}"
+export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 %{__python} tools/gen.py
 # Recreate removed Cython files using commands extracted from the Makefile.
 # We don't run make directly, as it pip-installs Cython.
