@@ -3,13 +3,13 @@
 %bcond tests 0
 
 Name:		python-aiohttp
-Version:	3.13.2
-Release:	2
+Version:	3.13.3
+Release:	1
 Summary:	Python HTTP client/server for asyncio
 License:	Apache-2.0
 URL:		https://github.com/aio-libs/aiohttp
 Group:		Development/Python
-Source0:	https://files.pythonhosted.org/packages/source/a/aiohttp/aiohttp-%{version}.tar.gz
+Source0:	https://files.pythonhosted.org/packages/source/a/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRequires:	python
 BuildRequires:	pkgconfig
@@ -51,6 +51,8 @@ with middlewares and pluggable routing.
 
 %prep
 %autosetup -p1 -n %{module}-%{version}
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
 # Remove bundled llhttp
 rm -rv vendor/llhttp
@@ -97,6 +99,8 @@ export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 
 %install
 %py_install
+rm -rf %{buildroot}%{python_sitearch}/aiohttp/.hash
+rm -rf %{buildroot}%{python_sitearch}/aiohttp/_websocket/.hash
 
 %check
 %if %{with tests}
