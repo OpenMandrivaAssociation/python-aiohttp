@@ -4,7 +4,7 @@
 
 Name:		python-aiohttp
 Version:	3.13.5
-Release:	1
+Release:	2
 Summary:	Python HTTP client/server for asyncio
 License:	Apache-2.0
 URL:		https://github.com/aio-libs/aiohttp
@@ -102,8 +102,8 @@ export LDFLAGS="%{ldflags} -lpython%{py_ver}"
 rm -rf %{buildroot}%{python_sitearch}/aiohttp/.hash
 rm -rf %{buildroot}%{python_sitearch}/aiohttp/_websocket/.hash
 
-%check
 %if %{with tests}
+%check
 export CI=true
 export PYTHONPATH="%{buildroot}%{python_sitearch}:${PWD}"
 export PYTHONSAFEPATH=1
