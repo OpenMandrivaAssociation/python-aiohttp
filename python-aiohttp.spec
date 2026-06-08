@@ -3,7 +3,7 @@
 %bcond tests 0
 
 Name:		python-aiohttp
-Version:	3.14.0
+Version:	3.14.1
 Release:	1
 Summary:	Python HTTP client/server for asyncio
 License:	Apache-2.0
