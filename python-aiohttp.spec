@@ -89,12 +89,15 @@ export LDFLAGS="%{ldflags} -lpython%{pyver}"
 # We don't run make directly, as it pip-installs Cython.
 #
 # See the aiohttp/_find_header.c target in the Makefile; this also generates
-# _headers.pyi.
-%{__python} -m cython -3 \
+# _headers.pyi. 3.14.5 compiles reader_py.py to reader_c.c under an explicit
+# module name. There is no reader_c.py.
+%{__python} -m cython -3 -X freethreading_compatible=True -I aiohttp \
     aiohttp/*.pyx \
-    aiohttp/_websocket/*.pyx \
-    aiohttp/_websocket/reader_c.py \
-    -I aiohttp
+    aiohttp/_websocket/*.pyx
+%{__python} -m cython -3 --module-name aiohttp._websocket.reader_c \
+    -X freethreading_compatible=True -I aiohttp \
+    -o aiohttp/_websocket/reader_c.c \
+    aiohttp/_websocket/reader_py.py
 
 %install -a
 rm -rf %{buildroot}%{python_sitearch}/aiohttp/.hash
