@@ -3,7 +3,7 @@
 %bcond tests 0
 
 Name:		python-aiohttp
-Version:	3.14.3
+Version:	3.14.5
 Release:	1
 Summary:	Python HTTP client/server for asyncio
 License:	Apache-2.0
@@ -15,7 +15,7 @@ Source0:	https://files.pythonhosted.org/packages/source/a/%{module}/%{module}-%{
 BuildSystem:	python
 BuildRequires:	python
 BuildRequires:	pkgconfig
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(aiosignal)
 BuildRequires:	python%{pyver}dist(aiohappyeyeballs)
 BuildRequires:	python%{pyver}dist(attrs)
@@ -27,7 +27,7 @@ BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(pkgconfig)
 BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(wheel)
-BuildRequires:	python%{pyver}dist(yarl)
+BuildRequires:	python%{pyver}dist(yarl) >= 1.25.1
 BuildRequires:	llhttp-devel >= 9.3.0
 
 %if %{with tests}
