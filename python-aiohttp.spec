@@ -85,6 +85,9 @@ export AIOHTTP_USE_SYSTEM_DEPS=1
 export CFLAGS="%{optflags}"
 export LDFLAGS="%{ldflags} -lpython%{pyver}"
 %{__python} tools/gen.py
+# Cython 3.3 crashes on typing.Final annotations in this file.
+sed -i 's/MSG_SIZE_OVERHEAD: Final\[int\] = 128/MSG_SIZE_OVERHEAD = 128/' aiohttp/_websocket/reader_py.py
+sed -i 's/STALLED_READER_COLLECTED: Final\[str\] = (/STALLED_READER_COLLECTED = (/' aiohttp/_websocket/reader_py.py
 # Recreate removed Cython files using commands extracted from the Makefile.
 # We don't run make directly, as it pip-installs Cython.
 #
